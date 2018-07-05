@@ -12,12 +12,12 @@ http.createServer(function(request, response){
 
     // 파일 이름이 비어 있다면 index.html 로 설정
     if(pathname=="/") {
-        pathname = "/index.html";
+        pathname = "index.html";
     }
 
     // 파일을 읽기
 
-    fs.readFile(pathname.substr(1), function (err, data){
+    fs.readFile(pathname, function (err, data){
         if (err) {
             console.log(err);
             //페이지를 찾을 수 없음
