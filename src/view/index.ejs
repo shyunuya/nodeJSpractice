@@ -1,16 +1,50 @@
 <html>
 <head>
     <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-<h1>Loop it!</h1>
-<ul>
-    <% for(var i = 0; i < length; i++){ %>
-    <li>
-        <%= "LOOP" + i %>
-    </li>
+<!-- data-role는 jQuery mobile에서 해당 엘리먼트가 어떤 UI인지를 지정한다. 아래 page는 이 엘리먼트가 가장 큰 단위인 페이지임을 의미한다. -->
+<div data-role="page">
+
+    <% if(username) { %>
+    <h2>Welcome!!!! <%= username %> (name: <%= name %>) </h2>
+    <% }else{ %>
+    <h2>Please Login. </h2>
     <% } %>
-</ul>
+
+    <!-- 제목과 글로벌 메뉴를 표시하는 엘리먼트를 지정 -->
+    <div data-role="header">
+        <h1>My Title</h1>
+    </div><!-- /header -->
+    <!-- 컨텐츠가 표시되는 영역을 지정 -->
+    <div data-role="content">
+        <p>Hello world</p>
+    </div><!-- /content -->
+
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true" data-filter="true">
+            <li><a href="#">Acura</a></li>
+            <li><a href="#">Audi</a></li>
+            <li><a href="#">BMW</a></li>
+            <li><a href="#">Cadillac</a></li>
+            <li><a href="#">Ferrari</a></li>
+        </ul>
+    </div>
+
+    <form>
+        <label for="slider-0">Input slider:</label>
+        <input type="range" name="slider" id="slider-0" value="25" min="0" max="100"  />
+    </form>
+
+    <a href="#" data-role="button" data-icon="star">Star button</a>
+
+</div><!-- /page -->
+
+
 </body>
 </html>
